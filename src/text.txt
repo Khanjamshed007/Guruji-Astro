@@ -1,0 +1,69 @@
+<Box position="relative">
+      <Slider
+        defaultValue={currentIndex}
+        min={0}
+        max={images.length - 1}
+        onChange={handleChange}
+      >
+        <SliderTrack bg="gray.200">
+          <SliderFilledTrack bg="blue.500" />
+          <SliderThumb boxSize={4} bg="blue.500" />
+        </SliderTrack>
+      </Slider>
+
+      {images.map((image, index) => (
+        <Box
+          key={index}
+          position="absolute"
+          left={0}
+          opacity={index === currentIndex ? 1 : 0}
+          transform={index === currentIndex ? "scale(1.2)" : "scale(1)"}
+          transition="opacity 0.3s, transform 0.3s"
+          zIndex={index === currentIndex ? 1 : 0}
+        >
+          <img src={image} alt={`Carousel Image ${index + 1}`} />
+        </Box>
+      ))}
+    </Box>
+
+
+<Box>
+
+
+
+
+
+
+
+
+
+
+<Container width={'full'}>
+          <Carousel
+            slidesToShow={5}
+            slidesToScroll={1}
+            showStatus={false}
+            showArrows={false}
+            showThumbs={false}
+            showIndicators={false}
+            width={"30%"}
+            centerMode={true}
+            onChange={setCurrentSlide}
+            selectedItem={currentSlide}
+            className="carousel"
+          >
+            {Testimonial1.map((i) => (
+              <Box key={i.id} marginTop={"2rem"}>
+                <Image src={i.icon} alt="Images" />
+              </Box>
+            ))}
+          </Carousel>
+        </Container>
+
+        <Box
+          display={"flex"}
+          alignItems={"center"}
+          justifyContent={"center"}
+          gap={"2rem"}
+          marginTop={"1.5rem"}
+        ></Box>
